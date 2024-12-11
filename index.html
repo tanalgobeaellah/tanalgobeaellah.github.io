@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio website</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<style>
+    body {
+        background-color: rgba(253, 244, 244, 30%);
+        font-family: 'Montserrat', Arial, sans-serif;
+        margin: 0px;
+    }
+
+    /*-------------------------------------------*/
+
+    /* GENERAL */
+    /* Fonts */
+    .introduction {
+        font-weight: normal;
+        line-height: normal;
+        font-family: 'Oswald', Arial, sans-serif;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0px;
+        background-image: linear-gradient(135deg, rgb(250, 113, 283)0%, rgb(255, 142, 134)60%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        word-wrap: break-word;
+    }
+
+    .medium-spacing {
+        font-weight: normal;
+        line-height: normal;
+        font-family: 'Oswald', Arial, sans-serif;
+        font-size: 4rem;
+        letter-spacing: 4px;
+        margin: 0px;
+    }
+
+    .medium-spacing-halfsize {
+        font-weight: normal;
+        line-height: normal;
+        font-family: 'Oswald', Arial, sans-serif;
+        font-size: 2rem;
+        letter-spacing: 4px;
+        margin: 0px;
+    }
+
+    .main-title-large {
+        font-weight: normal;
+        line-height: normal;
+        font-size: 3rem;
+    }
+
+    .main-title {
+        font-weight: normal;
+        line-height: normal;
+        font-size: 1.5rem;
+    }
+
+    .small {
+        font-weight: normal;
+        font-size: 0.7rem;
+    }
+
+    .quote {
+        font-family: 'Covered By Your Grace', cursive, sans-serif;
+        font-size: 1.5em;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .colorful-letter {
+        background-image: linear-gradient(135deg, rgb(250, 113, 283)0%, rgb(255, 142, 134)60%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Background colors */
+    .baby-pink {
+        background-color: rgba(253, 129, 187, 0.3);
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .baby-pink-light {
+        background-color: rgba(243, 162, 200, 0.3);
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Setting alignments and sizing */
+    /* for the flexbox */
+    .wrapper {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        gap: 20px 20px;
+    }
+
+    .column {
+        flex: 50%;
+    }
+
+    .w-900 {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    /* for the grid system */
+    .grid-system-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .grid-system-4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    /* other */
+    .max-width {
+        max-width: 450px;
+    }
+
+    .max-height {
+        max-height: 350px;
+    }
+
+    .align-center {
+        align-self: center;
+    }
+
+    .justify-content {
+        justify-content: right;
+    }
+
+    .justify {
+        text-align: justify;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .padding {
+        padding: 20px;
+    }
+
+    .padding-top {
+        padding-top: 20px;
+    }
+
+    .padding-right {
+        padding-right: 20px;
+    }
+
+    .padding-bottom {
+        padding-bottom: 20px;
+    }
+
+    .padding-left {
+        padding-left: 20px;
+    }
+
+    .margin-auto {
+        margin: auto;
+    }
+
+    .margin-trbl10 {
+        margin: 10px;
+    }
+
+    /* for sticky bottom button */
+    .flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+
+    /* Miscellaneous */
+    .button {
+        background-color: rgba(253, 129, 187, 0.3);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5%;
+        color: black;
+    }
+
+    /* I only used button-outline on this project, but you may like the other one more */
+    .button-outline {
+        border: 2px solid rgba(253, 129, 187, 0.3);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5%;
+        color: black;
+    }
+
+    .link {
+        text-decoration: none;
+    }
+
+    /* I had to double this code, because of the :hover and :active on link above */
+    .link-no-scale {
+        text-decoration: none;
+    }
+
+    .no-padding-list-item {
+        padding-left: 0;
+    }
+
+    .padding-list-10 {
+        padding: 10px;
+    }
+
+    .no-bullet-list {
+        list-style-type: none;
+    }
+
+    /* ---------------------------------- */
+
+    /* ANIMATIONS AND OTHER BEAUTIES */
+    .button-outline:hover,
+    .button-outline:active {
+        border: 2px solid rgba(253, 129, 187, 0.3);
+        background-color: rgba(253, 129, 187, 0.6);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5%;
+        color: rgb(255, 255, 255);
+        transition: background-color 1s ease, color 1s ease;
+    }
+
+    .link:hover,
+    .link:active {
+        font-size: 1.2rem;
+        transform: scale(1.5);
+        transition: 1s ease-in-out;
+        /* second solution: */
+        /* font-size: 1.2rem; 
+    transition: font-size 2s ease-in-out;  */
+    }
+
+    .progress-bar:hover,
+    .progress-bar:active {
+        box-shadow: 5px 5px 5px #cdadcd;
+        transition: box-shadow 1s ease;
+    }
+
+    /* ---------------------------------- */
+
+    /* NAV */
+    nav {
+        margin-bottom: 30px;
+    }
+
+    .main-nav {
+        background-color: rgb(253, 249, 249);
+        display: flex;
+        list-style-type: none;
+        justify-content: center;
+        padding: 20px;
+        margin: 0px;
+    }
+
+    .main-nav li {
+        padding: 5px 10px;
+    }
+
+    .main-nav li a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .main-nav li a:hover {
+        color: rgb(254, 175, 210);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .sticky {
+        position: -webkit-sticky;
+        /* for Safari */
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+        /* <-- this is the fix */
+    }
+
+    /* Nav-icon */
+    .toggle,
+    #drop {
+        display: none;
+    }
+
+    #main-toggle {
+        border: 1px solid #df36854d;
+        float: right;
+        padding: 20px;
+        /* position: relative; */
+        user-select: none;
+    }
+
+    .nav-icon {
+        background-color: #df36854d;
+        display: block;
+        height: 3px;
+        width: 10px;
+        position: relative;
+    }
+
+    .nav-icon::before,
+    .nav-icon::after {
+        background-color: #df36854d;
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .nav-icon::before {
+        top: 5px;
+    }
+
+    .nav-icon::after {
+        top: -5px;
+    }
+
+    /* ---------------------------------- */
+
+    /* FOOTER */
+    footer {
+        color: #000000;
+        text-align: center;
+        padding: 20px 0px;
+    }
+
+    /* ---------------------------------- */
+
+    /* INTRODUCTION */
+    .header-img {
+        border-radius: 70%;
+    }
+
+    .skills {
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    .progress-bar {
+        background-color: #353b48;
+        display: block;
+        height: 10px;
+        border-radius: 20px;
+    }
+
+    .progress-bar span {
+        height: 10px;
+        float: left;
+        background: linear-gradient(135deg, rgb(250, 113, 283)0%, rgb(255, 142, 134)60%);
+        border-radius: 20px;
+        -webkit-background: linear-gradient(135deg, rgb(250, 113, 283) 0%, rgb(255, 142, 134) 60%);
+        -webkit-border-radius: 20px;
+    }
+
+    .html {
+        width: 90%;
+        animation: html 3s;
+    }
+
+    .css {
+        width: 75%;
+        animation: css 3s;
+    }
+
+    .javascript {
+        width: 63%;
+        animation: javascript 3s;
+    }
+
+    .php {
+        width: 54%;
+        animation: php 3s;
+    }
+
+    .comm-adapt {
+        width: 90%;
+        animation: comm-adapt 3s;
+    }
+
+    .team-player {
+        width: 85%;
+        animation: team-player 3s;
+    }
+
+    .problem-solving {
+        width: 82%;
+        animation: problem-solving 3s;
+    }
+
+    .open-minded {
+        width: 75%;
+        animation: open-minded 3s;
+    }
+
+    @keyframes html {
+        0% {
+            width: 0%;
+        }
+
+        100% {
+            width: 90%;
+        }
+
+    }
+
+    @keyframes open-minded {
+        0% {
+            width: 0%;
+        }
+
+        100% {
+            width: 75%;
+        }
+    }
+
+    /* ---------------------------------- */
+
+    /* PROJECTS */
+    /* I also used these card settings on other sub-pages */
+    .card {
+        box-shadow: 0 3px 10px rgb(127 110 187 / 0.2);
+        padding: 20px;
+    }
+
+    .box {
+        display: block;
+        width: 100px;
+    }
+
+    /* ---------------------------------- */
+
+    /* CONTACT ME */
+    .box-contact {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    /* ---------------------------------- */
+
+    /* SPECIAL THANKS */
+    /* Everything here is made with general classes. Find them in the GENERAL section */
+    /* ---------------------------------- */
+
+    /* RESPONSIVENESS */
+    /* Had to pay attention for that wondow.innerWidth when calculated max-width */
+    @media screen and (max-width: 867px) {
+        body {
+            font-size: 90%;
+        }
+
+        .grid-system-2 {
+            grid-template-columns: 1fr;
+        }
+
+        .large {
+            font-size: 4rem;
+        }
+
+        .medium-spacing {
+            font-size: 2.5rem;
+        }
+
+        .main-title-large {
+            font-size: 2rem;
+            text-align: center;
+            margin: 0;
+        }
+
+        .main-title {
+            text-align: center;
+            margin: 0;
+        }
+
+        .small {
+            font-size: 0.6rem;
+        }
+
+        .max-width {
+            max-width: 300px
+        }
+
+        .max-height {
+            max-height: 250px;
+        }
+
+        .padding-top {
+            padding-top: 10px;
+        }
+
+        .padding-right {
+            padding-right: 10px;
+        }
+
+        .padding-bottom {
+            padding-bottom: 10px;
+        }
+
+        .padding-left {
+            padding-left: 10px;
+        }
+
+        .logo {
+            width: 40px;
+        }
+    }
+
+    /* wrapper on home page looks better with this @media */
+    @media screen and (max-width: 750px) {
+        .wrapper {
+            flex-direction: column;
+            gap: 20px 0px;
+        }
+
+        .column {
+            flex: 100%;
+        }
+
+        .box {
+            margin: auto;
+        }
+
+        .thanks {
+            text-align: center;
+        }
+    }
+
+    /* media query for hamburger menu with dropdown */
+    @media screen and (max-width: 510px) {
+        .main-nav {
+            display: none;
+        }
+
+        .toggle {
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid #fd81bb4d;
+        }
+
+        .toggle:hover {
+            background-color: #f0e7e7;
+        }
+
+        #drop:checked+.main-nav {
+            display: block;
+        }
+
+        nav {
+            padding-bottom: 25px;
+        }
+
+        .max-width {
+            max-width: 100%;
+        }
+    }
+
+    /* media query for smaller screens */
+    /* smaller fonts were my way to go */
+    @media screen and (max-width: 377px) {
+        body {
+            line-height: 1.5rem;
+        }
+
+        .large {
+            font-size: 3rem;
+        }
+
+        .medium-spacing {
+            font-size: 1.5rem;
+        }
+
+        .medium-spacing-halfsize {
+            font-size: 1.5rem;
+        }
+
+        .main-title {
+            font-size: 1rem;
+        }
+
+        .main-title-large {
+            font-size: 1.5rem;
+        }
+    }
+
+    /* DARK THEME */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: rgba(45, 45, 45, 1);
+            color: white;
+        }
+
+        .baby-pink {
+            background-color: rgb(243, 162, 200);
+        }
+
+        .baby-pink-light {
+            background-color: rgba(45, 45, 45, 1);
+            border: 2px solid rgb(243, 162, 200);
+        }
+
+        .main-nav {
+            background-color: rgba(45, 45, 45, 1);
+        }
+
+        .main-nav li a {
+            color: white;
+        }
+
+        .main-nav li a:hover {
+            color: rgb(254, 175, 210);
+        }
+
+        #main-toggle {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background-color: rgba(45, 45, 45, 1);
+        }
+
+        .nav-icon {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-icon::before,
+        .nav-icon::after {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .button-outline {
+            border: 2px solid rgb(254, 175, 210);
+            color: white;
+        }
+
+        .button-outline:hover,
+        .button-outline:active {
+            border: 2px solid rgb(254, 175, 210);
+            background-color: rgb(254, 175, 210);
+        }
+
+        .card {
+            box-shadow: 0 0px 0px;
+            border: 2px solid rgb(254, 175, 210);
+        }
+
+        .logo {
+            background-color: white;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        .hobbies {
+            background-color: white;
+            border-radius: 100%;
+            padding: 10px;
+        }
+
+        footer {
+            color: white;
+        }
+
+        @media screen and (max-width: 929px) {
+            .baby-pink-light {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+</style>
+
+<body>
+    <nav class="sticky">
+        <label for="drop" class="toggle" id="main-toggle">
+            <span class="nav-icon"></span>
+        </label>
+    </nav>
+
+    <!-- introduction -->
+    <header class="introduction">
+        <section class="center align-center">
+            <img class="header-img max-width max-height"
+                src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t39.30808-6/460030678_958015582756268_6869962143849772603_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHaRp2KS1RxRrQFhGjEyEAL4X2V8E93oozhfZXwT3eijCLid2N6wmtdbBjDG9T6GzLPyFDk0NcIuRdwYmlKOdCK&_nc_ohc=oVDubC0cko4Q7kNvgHLNqGE&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&_nc_gid=AFzpkMbh5emY7YCrhefpto_&oh=00_AYAblWCEMm1A7e809dcMwasCKJ89OhvhbX7ugqljrVdIew&oe=674BAAD1"
+                alt="profile-picture">
+        </section>
+        <section class="align-center">
+            <h1 class="introduction">Hello, I am</h1>
+            <h1 class="medium-spacing"><b>Bea Ellah Tanalgo</b></h1>
+            <div class="intro">
+                <p>I was born in So.Calasa, Brgy.Caradio-an, Himamaylan City. I was supposed to be in my 2nd year
+                    college but financial issues forced me to take a break and focus on working. Now I am currently a
+                    1st year college student taking up Bachelor of Science in Information Technology at
+                    Fellowship Baptist College.</p>
+            </div>
+        </section>
+    </header>
+
+
+    <!-- quote -->
+    <article class="baby-pink">
+        <p class="quote uppercase"><img
+                src="https://scontent.xx.fbcdn.net/v/t1.15752-9/467456692_1334221524407282_2358251832326074423_n.png?_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeG-WIquB_RzXDTMfzfjJ4ELVg4pw_v0PKlWDinD-_Q8qXNSFihDmj5Hn6gEh0UcBDax6En3s5kCiVPW96vg6U07&_nc_ohc=DvEzh-2pdUoQ7kNvgHhKczA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QFqxaFoBWUkHpoaxvHgjHuBEtVHYlIZjUJ3jW4b7OigNQ&oe=676D2B11">
+        </p>
+    </article>
+
+    <!-- about me -->
+    <!-- That about me png is something I've made for fun, it has a purple version too, feel free to use it or change it to anything else. -->
+    <section class="wrapper">
+        <section class="margin-auto">
+            <img class="max-width max-height"
+                src="https://raw.githubusercontent.com/gist/UddeshJain/90646446c86e45c494d6e69bfc3005f1/raw/b15bee8a8b85f8740795b92c1878ab8ed9ec2204/About%20Me.gif"
+                alt="about-me-logo">
+        </section>
+        <section class="justify align-center">
+            <h2 class="bold">EDUCATION BACKGROUND</h2>
+            <b>High School</b>
+            <p>Himamaylan National High School</p>
+            <p>2022-2023</p>
+            <b>College</b>
+            <p>Fellowship Baptist College Kabankalan Inc.</p>
+            <p>Bachelor of Science in Information Technology</p>
+            <p>2024-Ongoing</p>
+            <p class="padding-top"><a href="about-me.html" class="button-outline">More info</a></p>
+        </section>
+    </section>
+
+    <section>
+        <h3 class="main-title center padding">MY LIFE</h3>
+    </section>
+    <section class="wrapper">
+        <section class="column">
+            <b class="padding-bottom">TECHNICAL SKILLS</b>
+            <section class="skills">
+                <ul class="no-bullet-list no-padding-list-item">
+                    <li>
+                        <p>reading book</p>
+                        <span class="progress-bar"><span class="html"></span></span>
+                    </li>
+                    <li>
+                        <p>coding</p>
+                        <span class="progress-bar"><span class="css"></span></span>
+                    </li>
+                    <li>
+                        <p>paperworks</p>
+                        <span class="progress-bar"><span class="javascript"></span></span>
+                    </li>
+                    <li>
+                        <p>reporting</p>
+                        <span class="progress-bar"><span class="php"></span></span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <section class="column">
+        <h2 class="padding-bottom">HOBBIES</h2>
+        <section class="skills">
+            <ul class="no-bullet-list no-padding-list-item">
+                <li>
+                    <p>Playing Mobile and Computer games</p>
+                    <span class="progress-bar"><span class="comm-adapt"></span></span>
+                </li>
+                <li>
+                    <p>Reading novels, mangas and webtoons</p>
+                    <span class="progress-bar"><span class="team-player"></span></span>
+                </li>
+                <li>
+                    <p>Listening to Musics</p>
+                    <span class="progress-bar"><span class="problem-solving"></span></span>
+                </li>
+                <li>
+                    <p>Watching anime,action movie</p>
+                    <span class="progress-bar"><span class="open-minded"></span></span>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <br>
+    <center>__THE END__</center>
+</body>
+
+</html>
